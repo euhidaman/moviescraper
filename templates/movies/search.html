@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MovieStream</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates:300,400,500,600" rel="stylesheet">
+  <link rel='stylesheet' href='https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css'>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<main>
+	<div class="container">
+		<h1>MovieStream</h1>
+		<div class="search-box">
+			<div class="search-icon"><i class="fa fa-search search-icon"></i></div>
+			<form action="/search/" class="search-form" method="post">
+                {% csrf_token %}
+				<input type="text" placeholder="Search your movie" id="search" name="s_input" autocomplete="off">
+			</form>
+			<svg class="search-border" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" viewBox="0 0 671 111" style="enable-background:new 0 0 671 111;"
+			 xml:space="preserve">
+          <path class="border" d="M335.5,108.5h-280c-29.3,0-53-23.7-53-53v0c0-29.3,23.7-53,53-53h280"/>
+          <path class="border" d="M335.5,108.5h280c29.3,0,53-23.7,53-53v0c0-29.3-23.7-53-53-53h-280"/>
+        </svg>
+			<div class="go-icon"><i class="fa fa-arrow-right"></i></div>
+		</div>
+
+	</div>
+</main>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+  <script  src="{% static 'script.js' %}"></script>
+
+</body>
+</html>
