@@ -11,22 +11,34 @@
 
     <title>MovieStream</title>
   </head>
-  <body>
-      <nav class="navbar navbar-light" style="background-color: #c28ade;">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'home' %}">MovieStream</a>
-        <form class="d-flex" action="/search/" method="post">
-            {% csrf_token %}
-          <input class="form-control me-2" type="search" placeholder="Search" name="s_input" autocomplete="off" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
-    </nav>
+  <body style="background-color: #a442eb;">
 
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #9808ff;">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}">MovieStream</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                </li>
+              </ul>
+              <form class="d-flex" action="/search/" method="post">
+                {% csrf_token %}
+              <input class="form-control me-2" type="search" placeholder="Search" name="s_input" autocomplete="off" aria-label="Search">
+              <button class="btn btn-primary" type="submit">Search</button>
+            </form>
+            </div>
+          </div>
+        </nav>
+
+    <main >
     {% block content %}
 
     {% endblock %}
-
+    </main>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
