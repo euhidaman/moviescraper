@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
     <section class="main-content py-4 mb-5" >
@@ -11,7 +12,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <h2>About Project</h2>
+                                            <h2 align="center">MovieStream</h2>
                                             <hr>
                                         </div>
                                     </div>
@@ -19,23 +20,43 @@
                                     <div class="card mb-3 border-dark mx-auto" style="max-width: 600px;" >
                                       <div class="row g-0">
                                         <div class="col-md-4">
-                                          <img src="{{ img }}" alt="">
+                                            {% if img != None %}
+                                                <img src="{{ img }}" alt="">
+                                            {% else %}
+                                                <img src="{% static 'broken.gif' %}" alt="">
+                                            {% endif %}
                                         </div>
                                         <div class="col-md-8">
                                           <div class="card-body">
-                                            <h5 class="card-title" align="center">Card title</h5>
+                                            {% if head != None %}
+                                               <h5 class="card-title" align="center">{{ head }}</h5>
+                                            {% else %}
+                                               <h5></h5>
+                                            {% endif %}
                                             <p class="card-text">{{ summary }}</p><br>
-                                            <p class="card-text"><small class="text-muted">Copyrights for the movies are held by their respective owners</small></p>
+                                            <p class="card-text"><small class="text-muted">Copyrights for the movies are held by their respective owners.</small></p>
                                           </div>
                                         </div>
                                       </div>
                                     </div>
 
+                                    {% if video != None %}
                                     <div class="mx-auto" style="max-width: 900px;" >
                                       <div class="ratio ratio-4x3">
-                                        <iframe src="//vidnext.net/streaming.php?id=NjcwOQ==&title=Django+Unchained+&typesub=SUB&sub=L2RqYW5nby11bmNoYWluZWQvZGphbmdvLXVuY2hhaW5lZC52dHQ=&cover=L2RqYW5nby11bmNoYWluZWQtdm5iL2NvdmVyLnBuZw==" title="YouTube video" allowfullscreen></iframe>
+                                        <iframe src="{{ video }}" title="YouTube video" allowfullscreen></iframe>
                                       </div>
                                     </div>
+                                    {% else %}
+                                    <div align="center" class="mx-auto" style="max-width: 900px;" >
+                                      <h5>The Video may not be present due to the following reasons --></h5>
+                                        <ul style="list-style-type:none;">
+                                            <li>The movie name may be incorrect.</li>
+                                            <li>Please type the full movie name in small letters.</li>
+                                            <li>The movie may not be present in our database.</li>
+                                        </ul>
+                                        <small class="text-muted">*** We are trying our best to provide you with the latest movies ***</small>
+                                    </div>
+                                    {% endif %}
 
                                 </div>
                             </div>
